@@ -1,4 +1,7 @@
 # React + Vite
+## Screenshots
+<img width="100%" height="626" alt="Weather App ScreenShot" src="https://github.com/user-attachments/assets/e1b8b8a0-2366-423f-a285-a69ca9cc43de" />
+
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
