@@ -6,14 +6,27 @@ import { useState } from 'react';
 export default function SearchBox({updateInfo}){
     let [city,setCity] = useState("");
     let [error,setError] = useState(false);
-    const API_URL = "https://api.openweathermap.org/data/2.5/weather"
-    const API_Key = "856d005298b26390121ac151f95eab2c"
+    const API_URL = "https://api.openweathermap.org/data/2.5/weather";
+    const API_Key = "bc0f9900ed800f0273dc92db25f700d3"
 
     let getWeatherInfo = async () => {
         try{
+        setError(false);
+        let response = await fetch(
+         `${API_URL}?q=${city.trim()}&appid=${API_Key}&units=metric`
+        );
+        if (!response.ok) {
+            setError(true);
+            return null;
+        }
 
-        let response = await fetch(`${API_URL}?q={city}&appid=${API_Key}&units=metric`)
         let jsonResponse = await response.json();
+        console.log("API RESPONSE:", jsonResponse);
+
+        if (!jsonResponse.main || !jsonResponse.weather) {
+            setError(true);
+            return;
+        }
         console.log(jsonResponse);
         let result = {
             city: city,
@@ -25,9 +38,10 @@ export default function SearchBox({updateInfo}){
             weather: jsonResponse.weather[0].description,
         };
         console.log(result);
+        setError(false);
         return result;
         } catch(err){
-            throw err;
+            setError(true);
         }
     }
 
@@ -40,10 +54,13 @@ let handleChange = (event) => {
 let handleSubmit =  async (event) => {
     try{
     event.preventDefault();
+    setError(false);
     console.log(city);
-    setCity("");
     let newInfo = await getWeatherInfo();
-    updateInfo(newInfo);
+    if (newInfo) {
+        updateInfo(newInfo);
+    }
+    setCity("");
     }catch(err){
         setError(true);
     }
