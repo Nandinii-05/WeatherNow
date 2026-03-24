@@ -7,7 +7,8 @@ export default function SearchBox({updateInfo}){
     let [city,setCity] = useState("");
     let [error,setError] = useState(false);
     const API_URL = "https://api.openweathermap.org/data/2.5/weather";
-    const API_Key = "bc0f9900ed800f0273dc92db25f700d3"
+    const API_Key = import.meta.env.VITE_API_KEY;
+
 
     let getWeatherInfo = async () => {
         try{
@@ -22,7 +23,7 @@ export default function SearchBox({updateInfo}){
 
         let jsonResponse = await response.json();
         console.log("API RESPONSE:", jsonResponse);
-
+        console.log("PROD KEY:", import.meta.env.VITE_API_KEY);
         if (!jsonResponse.main || !jsonResponse.weather) {
             setError(true);
             return;
