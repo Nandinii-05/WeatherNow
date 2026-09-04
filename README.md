@@ -1,19 +1,60 @@
-# React + Vite
+# 🌤️ WeatherNow – React Weather Forecast App
+
+A responsive weather application built with **React.js** that provides real-time weather data through an external API integration. Users can search for any city and instantly view current weather conditions in a clean, component-based UI.
+
 ## Screenshots
-<img width="100%" height="626" alt="Weather App ScreenShot" src="https://github.com/user-attachments/assets/e1b8b8a0-2366-423f-a285-a69ca9cc43de" />
 
+<img width="100%" alt="WeatherNow screenshot 1" src="https://github.com/user-attachments/assets/e1b8b8a0-2366-423f-a285-a69ca9cc43de" />
+<img width="100%" alt="WeatherNow screenshot 2" src="https://github.com/user-attachments/assets/278286fe-1b5b-406d-b208-c33cbe14bce2" />
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 🔍 City-based weather search
+- ⚡ Real-time data fetched from the OpenWeather API
+- 🎯 Application state managed using React hooks
+- 🧩 Reusable, modular components for efficient UI rendering
+- 📱 Fully responsive design with Material UI
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+- **Frontend:** React.js, JavaScript, HTML, CSS
+- **UI Library:** Material UI
+- **API:** OpenWeather API
+- **Build Tool:** Vite
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## Installation
+
+Clone the repository:
+```bash
+git clone https://github.com/Nandinii-05/WeatherNow.git
+cd WeatherNow
+npm install
+```
+
+## Environment Variables
+
+Create a `.env` file in the project root with your OpenWeather API key:
+```
+VITE_OPENWEATHER_API_KEY=your_api_key_here
+```
+
+## Run Locally
+
+```bash
+npm run dev
+```
+
+The app will be available at `http://localhost:5173`.
+
+---
+
+## Author
+
+**Nandini Kumari**
+GitHub: [Nandinii-05](https://github.com/Nandinii-05)
