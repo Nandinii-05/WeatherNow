@@ -9,7 +9,6 @@ export default function SearchBox({updateInfo}){
     const API_URL = "https://api.openweathermap.org/data/2.5/weather";
     const API_Key = import.meta.env.VITE_API_KEY;
 
-
     let getWeatherInfo = async () => {
         try{
         setError(false);
@@ -22,13 +21,11 @@ export default function SearchBox({updateInfo}){
         }
 
         let jsonResponse = await response.json();
-        console.log("API RESPONSE:", jsonResponse);
-        console.log("PROD KEY:", import.meta.env.VITE_API_KEY);
         if (!jsonResponse.main || !jsonResponse.weather) {
             setError(true);
             return;
         }
-        console.log(jsonResponse);
+       
         let result = {
             city: city,
             temp: jsonResponse.main.temp,
@@ -38,7 +35,7 @@ export default function SearchBox({updateInfo}){
             feels_like: jsonResponse.main.feels_like,
             weather: jsonResponse.weather[0].description,
         };
-        console.log(result);
+        
         setError(false);
         return result;
         } catch(err){
@@ -56,7 +53,6 @@ let handleSubmit =  async (event) => {
     try{
     event.preventDefault();
     setError(false);
-    console.log(city);
     let newInfo = await getWeatherInfo();
     if (newInfo) {
         updateInfo(newInfo);
